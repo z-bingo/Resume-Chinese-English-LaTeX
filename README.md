@@ -5,4 +5,4 @@ Personal resume by LaTeX
 Aug. 10: upload the .cls file, and my final English CV, but it is only support English version now, Chinese version will be released later
 
 ### My Resume
-![My Personal Resume][https://github.com/z-bingo/Resume-Chinese-English-LaTeX/blob/master/CV_B_Zhang_EN.pdf]
+![My Personal Resume](https://github.com/z-bingo/Resume-Chinese-English-LaTeX/blob/master/CV_B_Zhang_EN.pdf)

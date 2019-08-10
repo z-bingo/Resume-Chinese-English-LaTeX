@@ -66,74 +66,6 @@
 \RequirePackage[colorlinks, linkcolor=black, urlcolor=black, bookmarks=false]{hyperref}
 
 
-% whether input zh
-\ifChinese
-	% Enable Chinese
-	\typeout{Chinese Mode, should be compiled with XeLaTeX!}
-	\RequirePackage{xeCJK}
-	\RequirePackage{xunicode}
-	\RequirePackage{xltxtra}
-
-	
-	\setCJKmainfont[Path=fonts/,BoldFont=HYQiHeiX1-55W.otf]{HYQiHeiX1-45W.otf}
-
-	%-----------------------------------Font Settings----------------------------------
-	\setCJKfamilyfont{song}{SimSun}                             %宋体 song
-	\newcommand{\song}{\CJKfamily{song}}                        % 宋体   (Windows自带simsun.ttf)
-	\setCJKfamilyfont{xs}{NSimSun}                              %新宋体 xs
-	\newcommand{\xs}{\CJKfamily{xs}}
-	\setCJKfamilyfont{fs}{FangSong_GB2312}                      %仿宋2312 fs
-	\newcommand{\fs}{\CJKfamily{fs}}                            %仿宋体 (Windows自带simfs.ttf)
-	\setCJKfamilyfont{kai}{KaiTi_GB2312}                        %楷体2312  kai
-	\newcommand{\kai}{\CJKfamily{kai}}                          
-	\setCJKfamilyfont{yh}{Microsoft YaHei}                    %微软雅黑 yh
-	\newcommand{\yh}{\CJKfamily{yh}}
-	\setCJKfamilyfont{hei}{SimHei}                                    %黑体  hei
-	\newcommand{\hei}{\CJKfamily{hei}}                          % 黑体   (Windows自带simhei.ttf)
-	\setCJKfamilyfont{msunicode}{Arial Unicode MS}            %Arial Unicode MS: msunicode
-	\newcommand{\msunicode}{\CJKfamily{msunicode}}
-	\setCJKfamilyfont{li}{LiSu}                                            %隶书  li
-	\newcommand{\li}{\CJKfamily{li}}
-	\setCJKfamilyfont{yy}{YouYuan}                             %幼圆  yy
-	\newcommand{\yy}{\CJKfamily{yy}}
-
-	\setCJKfamilyfont{hwsong}{STSong}                            %华文宋体  hwsong
-	\newcommand{\hwsong}{\CJKfamily{hwsong}}
-	\setCJKfamilyfont{hwzs}{STZhongsong}                        %华文中宋  hwzs
-	\newcommand{\hwzs}{\CJKfamily{hwzs}}
-	\setCJKfamilyfont{hwfs}{STFangsong}                            %华文仿宋  hwfs
-	\newcommand{\hwfs}{\CJKfamily{hwfs}}
-	\setCJKfamilyfont{hwxh}{STXihei}                                %华文细黑  hwxh
-	\newcommand{\hwxh}{\CJKfamily{hwxh}}
-	\setCJKfamilyfont{hwl}{STLiti}                                        %华文隶书  hwl
-	\newcommand{\hwl}{\CJKfamily{hwl}}
-	\setCJKfamilyfont{hwxw}{STXinwei}                                %华文新魏  hwxw
-	\newcommand{\hwxw}{\CJKfamily{hwxw}}
-	\setCJKfamilyfont{hwk}{STKaiti}                                    %华文楷体  hwk
-	\newcommand{\hwk}{\CJKfamily{hwk}}
-	\setCJKfamilyfont{hwxk}{STXingkai}                            %华文行楷  hwxk
-	\newcommand{\hwxk}{\CJKfamily{hwxk}}
-	\setCJKfamilyfont{hwcy}{STCaiyun}                                 %华文彩云 hwcy
-	\newcommand{\hwcy}{\CJKfamily{hwcy}}
-	\setCJKfamilyfont{hwhp}{STHupo}                                 %华文琥珀   hwhp
-	\newcommand{\hwhp}{\CJKfamily{hwhp}}
-
-	%-----------------------------Font Size---------------------------------
-	\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}     %初号
-	\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} %小初号
-	\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}      %一号
-	\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}      %二号
-	\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}  %小二号
-	\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}  %三号
-	\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}%     四号
-	\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}  %小四号
-	\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}    %五号
-	\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}   %小五号
-	\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}  %六号
-	\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}    %七号
-\fi
-
-
 % Customize the section heading
 \titleformat{\section}
 	{\Large\scshape\raggedright} % Customize the size of the section command
@@ -255,16 +187,10 @@
 	\subsection[#1]{#1: {\normalfont\normalsize#2}}
 }
 
-% def the different widths for English and Chinese due to the different lengths of sentences
-\ifChinese
-\def\@factor{0.4}
-\else
-\def\@factor{0.33}
-\fi
 
 \newcommand{\expsubsection}[4]{
 	\subsection[#1]{
-	\begin{minipage}[b]{\@factor\linewidth}
+	\begin{minipage}[b]{\0.33\linewidth}
 	\textbf{#1}
 	\end{minipage}
 	{\normalfont\textbf{#2}} \hfill #3}
@@ -273,15 +199,10 @@
 	\vspace{-10pt}
 }
 
-\ifEnglish
-\newcommand{\italicshape}{\textit}
-\else
-\newcommand{\italicshape}{}
-\fi
 
 % A special section for projects.
 \newcommand{\projectsubsection}[3]{
-	\subsection[#1]{\textbf{#1} - ({\normalfont\normalsize\italicshape{#2}})}
+	\subsection[#1]{\textbf{#1} - ({\normalfont\normalsize\textit{#2}})}
 	\vspace{-4pt}
 	{\normalfont\normalsize#3}
 	\vspace{-10pt}
